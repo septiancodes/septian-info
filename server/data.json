@@ -1,0 +1,453 @@
+{
+  "pin": "123456",
+  "profile": {
+    "name": "Septian",
+    "degree": "S.Kom",
+    "role": "Head of IT Support & Full Stack Developer",
+    "education": "S1 Teknik Informatika - UNIKOM Bandung",
+    "photoUrl": "/foto-saya.jpg",
+    "email": "septian.codes@gmail.com",
+    "cvUrl": "/CV_Septian.pdf",
+    "socials": {
+      "github": "https://github.com",
+      "linkedin": "https://linkedin.com",
+      "lynkid": "https://lynk.id",
+      "twitter": "https://twitter.com",
+      "ruangsistem": "https://ruangsistem.my.id"
+    }
+  },
+  "translations": {
+    "id": {
+      "nav": {
+        "home": "BERANDA",
+        "about": "TENTANG",
+        "work": "KARYA",
+        "services": "LAYANAN",
+        "contact": "KONTAK",
+        "getInTouch": "HUBUNGI SAYA",
+        "available": "Tersedia untuk proyek & konsultasi"
+      },
+      "hero": {
+        "badge": "HEAD OF IT SUPPORT & FULL STACK DEVELOPER",
+        "headingTitle1": "RETAIL & TECH",
+        "headingTitle2": "SOLUTIONS",
+        "intro": "Lulusan S1 Teknik Informatika UNIKOM Bandung dengan rekam jejak sejak 2017 mengelola operasional teknologi 8 cabang retail (Yen's Baby Shop & Borma Fashion) + 1 Head Office, memimpin standarisasi sistem terpusat, dan membangun aplikasi enterprise Laravel, React, & Flutter.",
+        "ctaWork": "Lihat Karya & Solusi",
+        "ctaContact": "Hubungi Saya",
+        "ctaCv": "Unduh CV (PDF)",
+        "idBadge": "ID BADGE",
+        "verified": "TERVERIFIKASI // UNIKOM",
+        "roleLabel": "PERAN",
+        "roleValue": "Head of IT",
+        "expLabel": "PENGALAMAN",
+        "expValue": "2017 - Sekarang",
+        "statusLabel": "STATUS",
+        "statusValue": "Tersedia",
+        "dragHint": "[ TARIK & LEPASKAN UNTUK KEMBALI ]"
+      },
+      "about": {
+        "label": "TENTANG SEPTIAN, S.KOM.",
+        "title1": "DARI LAPANGAN HINGGA",
+        "title2": "ARSITEKTUR TERPUSAT.",
+        "p1": "Memulai karir sejak Oktober 2017 sebagai IT Support lapangan tunggal hingga dipercaya memimpin sebagai Head of IT Support untuk 8 cabang retail aktif (5 cabang Yen's Baby Shop & 3 cabang Borma Fashion) serta 1 Head Office.",
+        "p2": "Berpengalaman memimpin transformasi sistem retail dari lokal menjadi terpusat di Head Office, standarisasi 1 Barang = 1 SKU Universal, manajemen stock opname lapangan, pemeliharaan hardware/jaringan/CCTV, serta perancangan aplikasi full stack modern dengan Laravel, React, Flutter, dan database SQL Server/MySQL.",
+        "stats": [
+          {
+            "value": "2017+",
+            "label": "Dedikasi Sejak"
+          },
+          {
+            "value": "8 Toko + 1 HO",
+            "label": "Skala Pengelolaan"
+          },
+          {
+            "value": "1 SKU",
+            "label": "Standarisasi Terpusat"
+          },
+          {
+            "value": "UNIKOM",
+            "label": "S1 Teknik Informatika"
+          }
+        ],
+        "skillsLabel": "KEAHLIAN LENGKAP: SOFTWARE, DATABASE & HARDWARE",
+        "skillsTitle": "TECH STACK, INFRASTRUKTUR & DATABASE"
+      },
+      "works": {
+        "label": "STUDI KASUS PROYEK NYATA",
+        "title": "KARYA & SISTEM TERBAIK",
+        "viewAll": "Semua Proyek",
+        "activeBadge": "PROYEK RETAIL",
+        "viewProject": "Lihat Studi Kasus",
+        "stackLabel": "TEKNOLOGI",
+        "prev": "Sebelumnya",
+        "next": "Berikutnya",
+        "projects": [
+          {
+            "id": 1,
+            "title": "RETAIL ATTENDANCE & HR SYSTEM v2.0",
+            "category": "MOBILE APP (FLUTTER / CAPACITOR) & BACKOFFICE",
+            "description": "Aplikasi presensi terpadu multi-cabang dengan validasi geolocation real-time, foto selfie anti-mock location, dan backoffice approval cuti/lembur berbasis Laravel.",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+            "tags": [
+              "Flutter",
+              "Capacitor Mobile",
+              "React.js",
+              "Laravel",
+              "MySQL",
+              "Tailwind CSS"
+            ],
+            "link": "#",
+            "impact": "Digunakan staf di seluruh cabang dengan akurasi presensi real-time 100%"
+          },
+          {
+            "id": 2,
+            "title": "CENTRALIZED RETAIL BACKOFFICE & MASTER SKU ENGINE",
+            "category": "ENTERPRISE RETAIL ERP",
+            "description": "Transformasi sistem dari database lokal menjadi terpusat di Head Office, standarisasi 1 Barang = 1 SKU Universal, manajemen SPK mutasi antar-cabang, dan alur stock opname terstruktur.",
+            "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
+            "tags": [
+              "Laravel",
+              "PHP",
+              "SQL Server",
+              "Stored Procedure",
+              "REST API"
+            ],
+            "link": "#",
+            "impact": "Menghilangkan selisih kode barang dan menyatukan sinkronisasi data 8 cabang retail"
+          },
+          {
+            "id": 3,
+            "title": "MULTI-TENANT LAUNDRY SAAS PLATFORM",
+            "category": "CLOUD SAAS ARCHITECTURE",
+            "description": "Arsitektur platform SaaS multi-tenant otomatis: customer daftar ➔ sistem otomatis membuat subdomain toko ➔ login POS & Dashboard khusus tenant ➔ Superadmin monitoring.",
+            "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop",
+            "tags": [
+              "Node.js",
+              "Express",
+              "React.js",
+              "Subdomain Engine",
+              "MySQL"
+            ],
+            "link": "#",
+            "impact": "Otomatisasi pembuatan toko digital instan dan manajemen multi-cabang bisnis"
+          },
+          {
+            "id": 4,
+            "title": "ESTEHATAN POS & SMART WHATSAPP LOYALTY",
+            "category": "POS & UMKM DIGITALIZATION",
+            "description": "Sistem Web POS kasir terintegrasi Customer View, registrasi loyalty member instan via nomor WhatsApp, dan cetak struk via Bluetooth Thermal Printer.",
+            "image": "https://images.unsplash.com/photo-1556742049-0a67e557b683?q=80&w=800&auto=format&fit=crop",
+            "tags": [
+              "React.js",
+              "Web POS",
+              "Bluetooth Thermal",
+              "WhatsApp Engine",
+              "Tailwind"
+            ],
+            "link": "#",
+            "impact": "Mempercepat waktu checkout kasir dan meningkatkan retensi pelanggan melalui poin member"
+          }
+        ]
+      },
+      "services": {
+        "label": "ALUR IMPLEMENTASI & PENGEMBANGAN",
+        "title1": "TAHAPAN PENGEMBANGAN",
+        "title2": "SOFTWARE & SISTEM RETAIL",
+        "stages": [
+          {
+            "number": "01",
+            "title": "ANALISIS PROSES BISNIS & AUDIT OPERASIONAL",
+            "description": "Audit alur kerja lantai toko (kasir, gudang, purchasing), pemetaan kendala di lapangan, identifikasi integrasi cabang, serta perumusan SLA.",
+            "deliverables": [
+              "Business Flow Diagram",
+              "System Scope Document",
+              "Spesifikasi Fitur",
+              "Timeline Implementasi"
+            ]
+          },
+          {
+            "number": "02",
+            "title": "DESAIN SKEMA DATABASE & STANDARISASI SKU",
+            "description": "Merancang ERD relational database (SQL Server / MySQL), standarisasi 1 SKU universal, stored procedures untuk transaksi tinggi, dan kontrak REST API.",
+            "deliverables": [
+              "Database ERD Schema",
+              "Standarisasi SKU & Supplier",
+              "API Contract Spec",
+              "Security Role Matrix"
+            ]
+          },
+          {
+            "number": "03",
+            "title": "PROTOTYPING & UI/UX WORKFLOW TOKO",
+            "description": "Mendesain antarmuka mobile APK (Flutter/React) & dashboard backoffice yang ergonomis, cepat diakses oleh kasir/staf toko, dan minim klik.",
+            "deliverables": [
+              "Wireframe Mobile & Web",
+              "Desain Dashboard Backoffice",
+              "Interactive Flow",
+              "Design System UI"
+            ]
+          },
+          {
+            "number": "04",
+            "title": "PENGEMBANGAN FULL STACK & MOBILE (FLUTTER/LARAVEL)",
+            "description": "Pembangunan backend scalable dengan Laravel / Node.js serta aplikasi mobile Flutter / Capacitor APK dengan arsitektur bersih dan terstruktur.",
+            "deliverables": [
+              "Source Code Laravel & Flutter",
+              "Mobile APK Build",
+              "Database Stored Procedures",
+              "Integrasi Middleware"
+            ]
+          },
+          {
+            "number": "05",
+            "title": "UAT, STOCK OPNAME & INTEGRASI CABANG",
+            "description": "Uji fungsionalitas menyeluruh (User Acceptance Test), simulasi stock opname lapangan, validasi geolocation presensi, dan uji beban server.",
+            "deliverables": [
+              "UAT Sign-Off",
+              "SOP Stock Opname",
+              "Bug Fixing Log",
+              "Multi-Branch Pilot Test"
+            ]
+          },
+          {
+            "number": "06",
+            "title": "DEPLOYMENT PRODUKSI, CCTV/JARINGAN & ONBOARDING",
+            "description": "Deployment live server (VPS / On-Premise), setup auto-backup database harian, integrasi jaringan/CCTV toko, SOP operasional, serta pelatihan staf.",
+            "deliverables": [
+              "Live Production Deploy",
+              "Automated DB Backup",
+              "User Manual / SOP",
+              "Support Maintenance"
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "label": "MARI BERKOLABORASI",
+        "title": "SIAP MEMBANGUN & MENGOPTIMALKAN SISTEM ANDA",
+        "description": "Butuh pengembangan software retail terpadu, aplikasi mobile Flutter, standarisasi database terpusat, atau konsultasi infrastruktur IT? Hubungi saya.",
+        "navTitle": "// NAVIGASI",
+        "socialsTitle": "// TAUTAN & PLATFORM DIGITAL",
+        "copyright": "© 2026 Septian, S.Kom. Hak cipta dilindungi.",
+        "privacy": "Kebijakan Privasi",
+        "terms": "Syarat Layanan"
+      }
+    },
+    "en": {
+      "nav": {
+        "home": "HOME PAGE",
+        "about": "ABOUT",
+        "work": "WORK",
+        "services": "SERVICE",
+        "contact": "CONTACT",
+        "getInTouch": "CONTACT ME",
+        "available": "Available for projects & consulting"
+      },
+      "hero": {
+        "badge": "HEAD OF IT SUPPORT & FULL STACK DEVELOPER",
+        "headingTitle1": "RETAIL & TECH",
+        "headingTitle2": "SOLUTIONS",
+        "intro": "UNIKOM Bandung Bachelor of Information Engineering graduate with a track record since 2017 managing technology operations of 8 retail branches (Yen's Baby Shop & Borma Fashion) + 1 Head Office, leading centralized system standardization, and building Laravel, React, & Flutter enterprise applications.",
+        "ctaWork": "View Works & Solutions",
+        "ctaContact": "Contact me",
+        "ctaCv": "Download CV (PDF)",
+        "idBadge": "BADGE ID",
+        "verified": "VERIFIED // UNIKOM",
+        "roleLabel": "ROLE",
+        "roleValue": "Head of IT",
+        "expLabel": "EXPERIENCE",
+        "expValue": "2017 - Present",
+        "statusLabel": "STATUS",
+        "statusValue": "Available",
+        "dragHint": "[ DRAG & DROP TO RETURN ]"
+      },
+      "about": {
+        "label": "ABOUT SEPTIAN, S.KOM.",
+        "title1": "FROM FIELD TO",
+        "title2": "CENTRALIZED ARCHITECTURE.",
+        "p1": "Starting his career in October 2017 as a single field IT Support, he was trusted to lead as Head of IT Support for 8 active retail branches (5 Yen's Baby Shop branches & 3 Borma Fashion branches) as well as 1 Head Office.",
+        "p2": "Experienced in leading the transformation of retail systems from local to centralized at the Head Office, standardization of 1 item = 1 Universal SKU, field stock taking management, hardware/network/CCTV maintenance, as well as designing modern full stack applications with Laravel, React, Flutter, and SQL Server/MySQL databases.",
+        "stats": [
+          {
+            "value": "2017+",
+            "label": "Dedication Since"
+          },
+          {
+            "value": "8 Shops + 1 HO",
+            "label": "Management Scale"
+          },
+          {
+            "value": "1 SKU",
+            "label": "Centralized Standardization"
+          },
+          {
+            "value": "UNIKOM",
+            "label": "S1 Informatics Engineering"
+          }
+        ],
+        "skillsLabel": "COMPLETE EXPERTISE: SOFTWARE, DATABASE & HARDWARE",
+        "skillsTitle": "TECH STACK, INFRASTRUCTURE & DATABASE"
+      },
+      "works": {
+        "label": "REAL PROJECT CASE STUDIES",
+        "title": "BEST WORKS & SYSTEMS",
+        "viewAll": "All Projects",
+        "activeBadge": "RETAIL PROJECTS",
+        "viewProject": "View Case Studies",
+        "stackLabel": "TECHNOLOGY",
+        "prev": "Previously",
+        "next": "Next",
+        "projects": [
+          {
+            "id": 1,
+            "title": "RETAIL ATTENDANCE & HR SYSTEM v2.0",
+            "category": "MOBILE APP (FLUTTER / CAPACITOR) & BACKOFFICE",
+            "description": "Multi-branch integrated attendance application with real-time geolocation validation, anti-mock location selfie photos, and Laravel-based leave/overtime backoffice approval.",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+            "tags": [
+              "Flutter",
+              "Capacitor Mobile",
+              "React.js",
+              "Laravel",
+              "MySQL",
+              "Tailwind CSS"
+            ],
+            "link": "#",
+            "impact": "Used by staff in all branches with 100% real-time attendance accuracy"
+          },
+          {
+            "id": 2,
+            "title": "CENTRALIZED RETAIL BACKOFFICE & MASTER SKU ENGINE",
+            "category": "ENTERPRISE RETAIL ERP",
+            "description": "System transformation from a local database to a centralized one at the Head Office, standardization of 1 Item = 1 Universal SKU, inter-branch mutation SPK management, and structured stock taking flow.",
+            "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
+            "tags": [
+              "Laravel",
+              "PHP",
+              "SQL Server",
+              "Stored Procedures",
+              "REST API"
+            ],
+            "link": "#",
+            "impact": "Eliminate differences in item codes and unify data synchronization for 8 retail branches"
+          },
+          {
+            "id": 3,
+            "title": "MULTI-TENANT LAUNDRY SAAS PLATFORM",
+            "category": "CLOUD SAAS ARCHITECTURE",
+            "description": "Automatic multi-tenant SaaS platform architecture: customer list ➔ automatic system creating shop subdomains ➔ tenant-specific POS login & Dashboard ➔ Superadmin monitoring.",
+            "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop",
+            "tags": [
+              "Node.js",
+              "Express",
+              "React.js",
+              "Engine Subdomains",
+              "MySQL"
+            ],
+            "link": "#",
+            "impact": "Automate instant digital store creation and multi-branch business management"
+          },
+          {
+            "id": 4,
+            "title": "ESTEHATAN POS & SMART WHATSAPP LOYALTY",
+            "category": "POS & MSME DIGITALIZATION",
+            "description": "Web POS cashier system integrated with Customer View, instant loyalty member registration via WhatsApp number, and print receipts via Bluetooth Thermal Printer.",
+            "image": "https://images.unsplash.com/photo-1556742049-0a67e557b683?q=80&w=800&auto=format&fit=crop",
+            "tags": [
+              "React.js",
+              "Web POS",
+              "Bluetooth Thermal",
+              "WhatsApp Engine",
+              "Tailwind"
+            ],
+            "link": "#",
+            "impact": "Speed ​​up cashier checkout times and increase customer retention through member points"
+          }
+        ]
+      },
+      "services": {
+        "label": "IMPLEMENTATION & DEVELOPMENT FLOW",
+        "title1": "DEVELOPMENT STAGES",
+        "title2": "SOFTWARE & RETAIL SYSTEM",
+        "stages": [
+          {
+            "number": "01",
+            "title": "BUSINESS PROCESS ANALYSIS & OPERATIONAL AUDIT",
+            "description": "Shop floor workflow audit (cashier, warehouse, purchasing), mapping of constraints in the field, identification of branch integration, and formulation of SLAs.",
+            "deliverables": [
+              "Business Flow Diagrams",
+              "System Scope Document",
+              "Feature Specifications",
+              "Implementation Timeline"
+            ]
+          },
+          {
+            "number": "02",
+            "title": "DATABASE SCHEME DESIGN & SKU STANDARDIZATION",
+            "description": "Designing ERD relational database (SQL Server / MySQL), standardization of 1 universal SKU, stored procedures for high transactions, and REST API contracts.",
+            "deliverables": [
+              "ERD Schema Database",
+              "SKU & Supplier standardization",
+              "API Contract Spec",
+              "Security Role Matrix"
+            ]
+          },
+          {
+            "number": "03",
+            "title": "SHOP PROTOTYPING & UI/UX WORKFLOW",
+            "description": "Designing a mobile APK (Flutter/React) interface & backoffice dashboard that is ergonomic, quickly accessed by cashiers/store staff, and requires minimal clicks.",
+            "deliverables": [
+              "Mobile & Web Wireframes",
+              "Backoffice Dashboard Design",
+              "Interactive Flow",
+              "UI System Design"
+            ]
+          },
+          {
+            "number": "04",
+            "title": "FULL STACK & MOBILE DEVELOPMENT (FLUTTER/LARAVEL)",
+            "description": "Scalable backend development with Laravel / Node.js as well as Flutter / Capacitor APK mobile applications with clean and structured architecture.",
+            "deliverables": [
+              "Laravel & Flutter Source Code",
+              "Mobile APK Build",
+              "Database Stored Procedures",
+              "Middleware Integration"
+            ]
+          },
+          {
+            "number": "05",
+            "title": "UAT, STOCK OPNAME & BRANCH INTEGRATION",
+            "description": "Comprehensive functionality test (User Acceptance Test), field stock taking simulation, presence geolocation validation, and server load test.",
+            "deliverables": [
+              "UAT Sign-Off",
+              "Stock Taking SOP",
+              "Bug Fixing Log",
+              "Multi-Branch Pilot Test"
+            ]
+          },
+          {
+            "number": "06",
+            "title": "PRODUCTION DEPLOYMENT, CCTV/NETWORK & ONBOARDING",
+            "description": "Live server deployment (VPS / On-Premise), daily database auto-backup setup, store network/CCTV integration, operational SOPs, and staff training.",
+            "deliverables": [
+              "Live Production Deployment",
+              "Automated DB Backup",
+              "User Manual / SOP",
+              "Maintenance Support"
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "label": "LET'S COLLABORATE",
+        "title": "READY TO BUILD & OPTIMIZE YOUR SYSTEM",
+        "description": "Need integrated retail software development, Flutter mobile applications, centralized database standardization, or IT infrastructure consulting? Contact me.",
+        "navTitle": "// NAVIGATION",
+        "socialsTitle": "// DIGITAL LINKS & PLATFORMS",
+        "copyright": "© 2026 Septian, S. Kom. Copyright protected.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service"
+      }
+    }
+  }
+}
