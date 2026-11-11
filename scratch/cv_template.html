@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Septian, S.Kom.</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.34;
+      font-size: 8.5pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    .header {
+      border-bottom: 2.5px solid #00875a;
+      padding-bottom: 7px;
+      margin-bottom: 10px;
+    }
+    .name {
+      font-size: 20pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+    }
+    .headline {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #00875a;
+      margin-top: 1px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 8.2pt;
+      color: #475569;
+      margin-top: 5px;
+    }
+    .contact-item strong {
+      color: #0f172a;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 7px;
+      page-break-inside: auto;
+    }
+    .section-title {
+      font-size: 9.4pt;
+      font-weight: 800;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      border-bottom: 1.2px solid #cbd5e1;
+      padding-bottom: 2px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      page-break-after: avoid;
+    }
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 11px;
+      background: #00875a;
+      border-radius: 2px;
+    }
+
+    /* SUMMARY */
+    .summary-text {
+      font-size: 8.2pt;
+      color: #334155;
+      line-height: 1.36;
+      text-align: justify;
+      margin-bottom: 3px;
+    }
+    .summary-text:last-child {
+      margin-bottom: 0;
+    }
+
+    /* COMPETENCIES GRID */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5px 12px;
+      font-size: 8.1pt;
+      color: #334155;
+    }
+    .comp-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .comp-item::before {
+      content: "▪";
+      color: #00875a;
+      font-size: 9pt;
+      line-height: 1;
+    }
+
+    /* TECHNICAL SKILLS */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.4pt;
+    }
+    .skills-table td {
+      padding: 2px 0;
+      vertical-align: top;
+    }
+    .skill-category-label {
+      font-weight: 700;
+      color: #0f172a;
+      width: 185px;
+      white-space: nowrap;
+    }
+    .skill-category-value {
+      color: #334155;
+    }
+
+    /* EXPERIENCE */
+    .job-entry {
+      margin-bottom: 8px;
+      page-break-inside: auto;
+    }
+    .job-main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+    .job-role {
+      font-size: 10.2pt;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .job-company {
+      font-size: 9.3pt;
+      font-weight: 700;
+      color: #00875a;
+    }
+    .job-meta {
+      font-size: 8.2pt;
+      color: #64748b;
+      font-style: italic;
+    }
+    .job-tagline {
+      font-size: 8.5pt;
+      font-style: italic;
+      color: #475569;
+      margin-bottom: 6px;
+    }
+
+    .sub-role-title {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-top: 4px;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .sub-role-title::before {
+      content: "▸";
+      color: #00875a;
+      font-size: 8.5pt;
+    }
+
+    .bullet-list {
+      list-style-type: square;
+      padding-left: 15px;
+      margin-bottom: 3px;
+    }
+    .bullet-list li {
+      font-size: 8.1pt;
+      color: #334155;
+      margin-bottom: 1.5px;
+      line-height: 1.32;
+      text-align: justify;
+    }
+
+    /* PROJECTS */
+    .project-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 3.5px solid #00875a;
+      padding: 5px 8px;
+      border-radius: 3px;
+      margin-bottom: 5px;
+      page-break-inside: avoid;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+    .project-title {
+      font-size: 9pt;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .project-role {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #00875a;
+    }
+    .project-tech {
+      font-size: 7.8pt;
+      font-family: Consolas, monospace;
+      color: #475569;
+      margin-bottom: 2px;
+    }
+    .project-tech strong {
+      color: #0f172a;
+    }
+    .project-bullets {
+      list-style-type: circle;
+      padding-left: 14px;
+    }
+    .project-bullets li {
+      font-size: 8pt;
+      color: #334155;
+      line-height: 1.3;
+      margin-bottom: 1.5px;
+    }
+
+    /* EDUCATION & EXTRA */
+    .two-col-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+    .col-title {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .col-subtitle {
+      color: #00875a;
+      font-weight: 600;
+    }
+    .col-meta {
+      color: #64748b;
+      font-style: italic;
+      font-size: 8pt;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1 class="name">SEPTIAN, S.KOM.</h1>
+    <div class="headline">IT MANAGER | IT LEAD | RETAIL SYSTEMS SPECIALIST</div>
+    <div class="contact-bar">
+      <div class="contact-item"><strong>Location:</strong> Bandung, West Java, Indonesia</div>
+      <div class="contact-item"><strong>Phone:</strong> 08980200100</div>
+      <div class="contact-item"><strong>Email:</strong> <a href="mailto:septian.codes@gmail.com">septian.codes@gmail.com</a></div>
+      <div class="contact-item"><strong>Website:</strong> <a href="https://septian.info">https://septian.info</a></div>
+      <div class="contact-item"><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/septiancodes">linkedin.com/in/septiancodes</a></div>
+      <div class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/septiancodes">github.com/septiancodes</a></div>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <p class="summary-text">
+      IT Professional with 9+ years of experience (since 2017) in managing centralized retail IT operations across 8 active store branches and 1 Head Office. Experienced in IT operations management, team leadership, IT infrastructure, ERP and Backoffice systems, database management, and full-stack application development.
+    </p>
+    <p class="summary-text">
+      Strong background in retail business process analysis, multi-branch system integration, vendor management, IT budgeting, and digital transformation. Proven ability to coordinate IT teams, improve operational efficiency, maintain system availability, and develop technology solutions that support business scalability.
+    </p>
+    <p class="summary-text">
+      Combines technical expertise in PHP, Laravel, React.js, Node.js, Flutter, Microsoft SQL Server, PostgreSQL, and MySQL with practical experience in retail operations and business systems.
+    </p>
+  </div>
+
+  <!-- CORE COMPETENCIES -->
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="comp-grid">
+      <div class="comp-item">IT Operations &amp; Infrastructure</div>
+      <div class="comp-item">IT Team Leadership &amp; Supervision</div>
+      <div class="comp-item">Retail ERP &amp; Backoffice Systems</div>
+      <div class="comp-item">Multi-Branch IT Operations</div>
+      <div class="comp-item">IT Budgeting &amp; Cost Control</div>
+      <div class="comp-item">Vendor &amp; Procurement Management</div>
+      <div class="comp-item">IT Asset Management</div>
+      <div class="comp-item">IT Project Management</div>
+      <div class="comp-item">Business Process Analysis</div>
+      <div class="comp-item">Digital Transformation &amp; Automation</div>
+      <div class="comp-item">Incident &amp; Problem Management</div>
+      <div class="comp-item">System &amp; Database Integration</div>
+    </div>
+  </div>
+
+  <!-- TECHNICAL SKILLS -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <table class="skills-table">
+      <tr>
+        <td class="skill-category-label">Programming &amp; Frameworks:</td>
+        <td class="skill-category-value">PHP, Laravel, CodeIgniter, JavaScript, TypeScript, React.js, Node.js, Express.js, Dart, Flutter, Tailwind CSS, HTML5, CSS3, REST API.</td>
+      </tr>
+      <tr>
+        <td class="skill-category-label">Database Management:</td>
+        <td class="skill-category-value">Microsoft SQL Server, PostgreSQL, MySQL, Stored Procedures, Database Normalization, Indexing, Query Optimization.</td>
+      </tr>
+      <tr>
+        <td class="skill-category-label">Retail Systems &amp; Business:</td>
+        <td class="skill-category-value">ERP Backoffice, Multi-Store POS, Inventory Management, Purchasing (PO), Stock Opname, Sales Analytics, Returns Management, Workforce Management.</td>
+      </tr>
+      <tr>
+        <td class="skill-category-label">Infrastructure &amp; Networking:</td>
+        <td class="skill-category-value">Linux (Ubuntu), Windows Server, pfSense, Firewall Management, Site-to-Site VPN, MikroTik Router, CCTV Network, Hardware, POS Devices, Thermal Printers.</td>
+      </tr>
+      <tr>
+        <td class="skill-category-label">Tools &amp; Deployment:</td>
+        <td class="skill-category-value">Git, GitHub, Supabase, Vercel, Laragon, Postman, CI/CD, Cloud Deployment.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+    
+    <div class="job-entry">
+      <div class="job-main-header">
+        <div>
+          <span class="job-role">Head of IT Support / IT Lead</span> &mdash; <span class="job-company">Retail Group (Yen's Baby Shop &amp; Borma Fashion)</span>
+        </div>
+        <div class="job-meta">October 2017 &ndash; Present | Bandung, Indonesia</div>
+      </div>
+      <div class="job-tagline">Lead and coordinate centralized IT operations, infrastructure, and business application support across 8 active retail branches and 1 Head Office.</div>
+
+      <!-- Subsection 1 -->
+      <div class="sub-role-title">IT Management &amp; Leadership</div>
+      <ul class="bullet-list">
+        <li>Lead and coordinate a team of 1–3 IT personnel, managing daily operational activities, technical support, and IT service delivery.</li>
+        <li>Manage IT vendors, service providers, procurement coordination, and technical requirements.</li>
+        <li>Handle IT budget planning, expenditure monitoring, and technology procurement to support operational requirements.</li>
+        <li>Establish IT operational procedures, technical standards, and troubleshooting workflows.</li>
+        <li>Coordinate with management and cross-functional departments to align IT solutions with business objectives.</li>
+      </ul>
+
+      <!-- Subsection 2 -->
+      <div class="sub-role-title">System Development &amp; Digital Transformation</div>
+      <ul class="bullet-list">
+        <li>Manage and support centralized ERP Backoffice and retail applications, enabling integrated transaction and inventory monitoring across multiple branches.</li>
+        <li>Standardize SKU and inventory processes, reducing stock duplication and stock opname discrepancies by more than 90%.</li>
+        <li>Support and develop internal business applications, including attendance management, supplier visit management, digital purchasing orders, and operational reporting.</li>
+        <li>Develop mobile workforce applications using Flutter with GPS geolocation validation and centralized approval workflows using Laravel and MySQL.</li>
+      </ul>
+
+      <!-- Subsection 3 -->
+      <div class="sub-role-title">Infrastructure &amp; Operational Excellence</div>
+      <ul class="bullet-list">
+        <li>Maintain POS infrastructure availability with uptime reaching 99.5% across retail operations.</li>
+        <li>Manage network infrastructure, firewall configurations, VPN connectivity, POS devices, barcode scanners, and thermal printers.</li>
+        <li>Supervise IT troubleshooting across hardware, operating systems, networks, and business applications.</li>
+        <li>Maintain retail network security and connectivity through pfSense, firewall policies, and Site-to-Site VPN.</li>
+        <li>Manage incident resolution with an average completion time below 2 hours (SLA under 2 hours).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- KEY PROJECTS & ACHIEVEMENTS -->
+  <div class="section" style="page-break-before: always; break-before: page; margin-top: 5px;">
+    <div class="section-title">Key Projects &amp; Achievements</div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">1. Retail ERP &amp; Centralized Backoffice System</span>
+        <span class="project-role">Role: IT Lead / System Development</span>
+      </div>
+      <div class="project-tech"><strong>Technology:</strong> Laravel 11, React.js, PostgreSQL (Supabase), Tailwind CSS</div>
+      <ul class="project-bullets">
+        <li>Centralized retail ERP system supporting multiple branches with integrated workflows and inventory monitoring.</li>
+        <li>Comprehensive modules for SKU master data, purchase orders, stock transfers, and sales analytics.</li>
+      </ul>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">2. Retail Attendance &amp; Workforce Geolocation Mobile App</span>
+        <span class="project-role">Role: System Developer</span>
+      </div>
+      <div class="project-tech"><strong>Technology:</strong> Flutter, Dart, Laravel REST API, MySQL</div>
+      <ul class="project-bullets">
+        <li>Mobile attendance application with GPS radius validation and employee selfie verification.</li>
+        <li>Centralized HR portal for attendance, leave, overtime, and employee administration.</li>
+      </ul>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">3. Real-Time Branch Sales Analytics Dashboard</span>
+        <span class="project-role">Role: Full Stack Developer</span>
+      </div>
+      <div class="project-tech"><strong>Technology:</strong> React.js, Express.js, Microsoft SQL Server, Tailwind CSS</div>
+      <ul class="project-bullets">
+        <li>Developed an analytical dashboard to monitor branch sales performance and support operational reporting.</li>
+        <li>Provides executive management with real-time data visibility for accurate business performance evaluation.</li>
+      </ul>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">4. Digital Purchase Order &amp; Supplier Visit Management</span>
+        <span class="project-role">Role: IT Lead / Application Developer</span>
+      </div>
+      <div class="project-tech"><strong>Technology:</strong> PHP, Laravel, MySQL, JavaScript</div>
+      <ul class="project-bullets">
+        <li>Digitized purchasing order workflows, reducing manual paperwork and accelerating approval times.</li>
+        <li>Implemented supplier visit registration with automated purchasing department notifications.</li>
+      </ul>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">5. Laundry Management &amp; POS SaaS Application</span>
+        <span class="project-role">Role: Independent Full Stack Developer</span>
+      </div>
+      <div class="project-tech"><strong>Technology:</strong> PHP, Laravel, MySQL, JavaScript, Android POS</div>
+      <ul class="project-bullets">
+        <li>Web-based laundry management application with SaaS-style multi-tenant registration and subdomain provisioning.</li>
+        <li>Integrated Android POS functionality with Bluetooth thermal printer support for receipt generation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="two-col-row">
+      <div>
+        <span class="col-title">Bachelor of Computer Science (S.Kom.)</span> &mdash; <span class="col-subtitle">Universitas Komputer Indonesia (UNIKOM)</span>
+      </div>
+      <div class="col-meta">Graduated: 2017 | Bandung, Indonesia</div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS & LANGUAGES -->
+  <div class="section" style="margin-bottom: 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div>
+        <div class="section-title">Certifications</div>
+        <div class="two-col-row" style="margin-bottom: 0;">
+          <div>
+            <span class="col-title">Mobile Development with Flutter</span><br>
+            <span class="col-subtitle" style="font-size: 8pt;">Sanbercode</span>
+          </div>
+          <div class="col-meta">2026</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title">Languages</div>
+        <div style="font-size: 8.4pt; color: #334155;">
+          <strong>Indonesian:</strong> Native &nbsp;|&nbsp; <strong>English:</strong> Basic Proficiency
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
