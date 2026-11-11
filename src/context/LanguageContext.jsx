@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { fetchPortfolioData } from '../lib/portfolioService';
 
 const LanguageContext = createContext();
 
@@ -330,14 +331,11 @@ export function LanguageProvider({ children }) {
 
   const loadData = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/portfolio');
-      if (res.ok) {
-        const data = await res.json();
-        if (data.profile) setProfile(data.profile);
-        if (data.translations) setAllTranslations(data.translations);
-      }
+      const data = await fetchPortfolioData();
+      if (data?.profile) setProfile(data.profile);
+      if (data?.translations) setAllTranslations(data.translations);
     } catch (err) {
-      // API fallback to default translations
+      // Fallback already handled inside fetchPortfolioData
     }
   };
 

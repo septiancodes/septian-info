@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Lock, KeyRound, ArrowRight, ShieldCheck, AlertCircle, ArrowLeft } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { verifyAdminPin } from '../lib/portfolioService';
 
 export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
   const { isDark } = useTheme();
@@ -20,28 +21,15 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
     setError('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pin }),
-      });
-
-      const data = await res.json();
-
-      if (res.ok && data.success) {
-        sessionStorage.setItem('admin_token', data.token);
+      const isValid = await verifyAdminPin(pin);
+      if (isValid) {
+        sessionStorage.setItem('admin_token', 'admin-session-' + Date.now());
         onLoginSuccess();
       } else {
-        setError(data.error || 'PIN tidak valid.');
+        setError('PIN tidak valid. Silakan coba lagi.');
       }
     } catch (err) {
-      // Fallback offline mock check if API server isn't running
-      if (pin === '123456') {
-        sessionStorage.setItem('admin_token', 'offline-session');
-        onLoginSuccess();
-      } else {
-        setError('Gagal menghubungi server API. Gunakan PIN default 123456.');
-      }
+      setError('Gagal memverifikasi PIN. Silakan coba lagi.');
     } finally {
       setLoading(false);
     }

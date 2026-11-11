@@ -5,6 +5,7 @@ import {
   Plus, Trash2, Edit2, Upload, CheckCircle2, AlertCircle, Eye, RefreshCw, Sun, Moon, ExternalLink
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { fetchPortfolioData, savePortfolioData, changeAdminPin, uploadMedia } from '../lib/portfolioService';
 
 export default function AdminDashboard({ onBackToSite, onLogout }) {
   const { isDark, toggleTheme } = useTheme();
@@ -50,14 +51,11 @@ export default function AdminDashboard({ onBackToSite, onLogout }) {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/portfolio');
-      if (res.ok) {
-        const data = await res.json();
-        if (data.profile) setProfile(data.profile);
-        if (data.translations) setTranslations(data.translations);
-      }
+      const data = await fetchPortfolioData();
+      if (data?.profile) setProfile(data.profile);
+      if (data?.translations) setTranslations(data.translations);
     } catch (err) {
-      console.warn('API offline, loading local backup data');
+      console.warn('Gagal memuat data dari Supabase, menggunakan data cadangan.');
     } finally {
       setLoading(false);
     }
@@ -72,54 +70,37 @@ export default function AdminDashboard({ onBackToSite, onLogout }) {
     setTimeout(() => setToast({ show: false, message: '', type: 'success' }), 4000);
   };
 
-  // Save all portfolio data
+  // Save all portfolio data to Supabase
   const handleSaveAll = async () => {
     setSaving(true);
     try {
-      const res = await fetch('http://localhost:5000/api/portfolio', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ profile, translations }),
-      });
-
-      if (res.ok) {
-        showToast('Semua perubahan berhasil disimpan ke database!');
-      } else {
-        showToast('Gagal menyimpan ke server.', 'error');
-      }
+      await savePortfolioData(profile, translations);
+      showToast('Semua perubahan berhasil disimpan ke database Supabase!');
     } catch (err) {
-      showToast('Koneksi ke backend API terputus.', 'error');
+      showToast('Gagal menyimpan ke database Supabase: ' + (err.message || ''), 'error');
     } finally {
       setSaving(false);
     }
   };
 
-  // Handle Photo Upload
+  // Handle Photo Upload to Supabase Storage
   const handleFileUpload = async (e, targetField = 'photoUrl') => {
     const file = e.target.files[0];
     if (!file) return;
 
-    const formData = new FormData();
-    formData.append('image', file);
-
     try {
-      const res = await fetch('http://localhost:5000/api/upload', {
-        method: 'POST',
-        body: formData,
-      });
-      const data = await res.json();
-      if (res.ok && data.url) {
+      showToast('Sedang mengunggah file ke cloud storage...');
+      const { url } = await uploadMedia(file, targetField === 'photoUrl' ? 'profile' : 'projects');
+      if (url) {
         if (targetField === 'photoUrl') {
-          setProfile(prev => ({ ...prev, photoUrl: data.url }));
+          setProfile(prev => ({ ...prev, photoUrl: url }));
         } else if (targetField === 'projectImage') {
-          setProjectForm(prev => ({ ...prev, image: data.url }));
+          setProjectForm(prev => ({ ...prev, image: url }));
         }
-        showToast('File berhasil diunggah!');
-      } else {
-        showToast(data.error || 'Upload gagal', 'error');
+        showToast('File berhasil diunggah ke Supabase Storage!');
       }
     } catch (err) {
-      showToast('Gagal mengunggah file ke backend.', 'error');
+      showToast('Gagal mengunggah file: ' + (err.message || ''), 'error');
     }
   };
 
@@ -215,7 +196,7 @@ export default function AdminDashboard({ onBackToSite, onLogout }) {
     showToast('Karya dihapus dari daftar.');
   };
 
-  // Change PIN
+  // Change PIN in Supabase
   const handleChangePin = async (e) => {
     e.preventDefault();
     if (pinForm.newPin !== pinForm.confirmPin) {
@@ -225,20 +206,15 @@ export default function AdminDashboard({ onBackToSite, onLogout }) {
 
     setPinLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/change-pin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ currentPin: pinForm.currentPin, newPin: pinForm.newPin }),
-      });
-      const data = await res.json();
-      if (res.ok && data.success) {
-        showToast('PIN Admin berhasil diperbarui!');
+      const result = await changeAdminPin(pinForm.currentPin, pinForm.newPin);
+      if (result.success) {
+        showToast('PIN Admin berhasil diperbarui di Supabase!');
         setPinForm({ currentPin: '', newPin: '', confirmPin: '' });
       } else {
-        showToast(data.error || 'Gagal mengubah PIN.', 'error');
+        showToast(result.error || 'Gagal mengubah PIN.', 'error');
       }
     } catch (err) {
-      showToast('Gagal menghubungi server.', 'error');
+      showToast('Gagal menghubungi database Supabase.', 'error');
     } finally {
       setPinLoading(false);
     }

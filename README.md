@@ -88,3 +88,4 @@ This project is optimized for deployment on **[Vercel](https://vercel.com/)** wi
 ---
 
 &copy; 2026 Septian. Built with passion for robust retail and scalable web systems.
+
