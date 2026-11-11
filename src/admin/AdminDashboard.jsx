@@ -83,17 +83,23 @@ export default function AdminDashboard({ onBackToSite, onLogout }) {
     }
   };
 
-  // Handle Photo Upload to Supabase Storage
+  // Handle Photo or CV Upload to Supabase Storage
   const handleFileUpload = async (e, targetField = 'photoUrl') => {
     const file = e.target.files[0];
     if (!file) return;
 
     try {
       showToast('Sedang mengunggah file ke cloud storage...');
-      const { url } = await uploadMedia(file, targetField === 'photoUrl' ? 'profile' : 'projects');
+      let folder = 'projects';
+      if (targetField === 'photoUrl') folder = 'profile';
+      if (targetField === 'cvUrl') folder = 'cv';
+
+      const { url } = await uploadMedia(file, folder);
       if (url) {
         if (targetField === 'photoUrl') {
           setProfile(prev => ({ ...prev, photoUrl: url }));
+        } else if (targetField === 'cvUrl') {
+          setProfile(prev => ({ ...prev, cvUrl: url }));
         } else if (targetField === 'projectImage') {
           setProjectForm(prev => ({ ...prev, image: url }));
         }
@@ -800,21 +806,54 @@ export default function AdminDashboard({ onBackToSite, onLogout }) {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider mb-2 text-gray-400">
-                          File / URL CV (PDF)
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="/CV_Septian.pdf"
-                          value={profile.cvUrl || ''}
-                          onChange={(e) => setProfile({
-                            ...profile,
-                            cvUrl: e.target.value
-                          })}
-                          className={`w-full px-4 py-3 rounded-xl border text-sm font-mono ${
-                            isDark ? 'bg-black/30 border-white/15 text-white' : 'bg-slate-50 border-slate-300 text-slate-900'
-                          }`}
-                        />
+                        <div className="flex items-center justify-between mb-2">
+                          <label className="block text-xs font-mono uppercase tracking-wider text-gray-400">
+                            File / Dokumen CV (PDF)
+                          </label>
+                          {profile.cvUrl && (
+                            <a
+                              href={profile.cvUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-[#00df8f] hover:underline flex items-center space-x-1 font-mono"
+                            >
+                              <span>Lihat CV</span>
+                              <ExternalLink size={12} />
+                            </a>
+                          )}
+                        </div>
+                        
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="text"
+                            placeholder="/CV_Septian.pdf atau link cloud"
+                            value={profile.cvUrl || ''}
+                            onChange={(e) => setProfile({
+                              ...profile,
+                              cvUrl: e.target.value
+                            })}
+                            className={`flex-1 px-4 py-3 rounded-xl border text-sm font-mono ${
+                              isDark ? 'bg-black/30 border-white/15 text-white' : 'bg-slate-50 border-slate-300 text-slate-900'
+                            }`}
+                          />
+                          <label
+                            htmlFor="cv-upload-input"
+                            className="px-4 py-3 rounded-xl bg-[#00df8f] hover:bg-[#00b373] text-black font-bold text-xs uppercase tracking-wider flex items-center space-x-2 cursor-pointer transition-colors shrink-0"
+                          >
+                            <Upload size={14} />
+                            <span>Unggah PDF</span>
+                          </label>
+                          <input
+                            id="cv-upload-input"
+                            type="file"
+                            accept=".pdf,application/pdf"
+                            onChange={(e) => handleFileUpload(e, 'cvUrl')}
+                            className="hidden"
+                          />
+                        </div>
+                        <p className={`text-[11px] mt-1.5 font-sans ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
+                          Unggah file PDF CV kamu langsung dari komputer untuk disimpan di cloud storage.
+                        </p>
                       </div>
                     </div>
                   </div>

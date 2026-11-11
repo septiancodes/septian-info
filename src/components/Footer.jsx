@@ -6,7 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
   const { isDark } = useTheme();
-  const { t, profile } = useLanguage();
+  const { t, profile, lang } = useLanguage();
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
