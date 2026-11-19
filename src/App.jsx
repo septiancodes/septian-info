@@ -9,9 +9,21 @@ import Services from './components/Services';
 import Footer from './components/Footer';
 import AdminLogin from './admin/AdminLogin';
 import AdminDashboard from './admin/AdminDashboard';
-import { Settings } from 'lucide-react';
 
-function PortfolioMain({ onOpenAdmin }) {
+function checkIsAdminPath() {
+  const path = window.location.pathname.toLowerCase().replace(/\/$/, '');
+  const hash = window.location.hash.toLowerCase();
+  return (
+    path === '/setting' ||
+    path === '/settings' ||
+    path === '/admin' ||
+    hash === '#setting' ||
+    hash === '#settings' ||
+    hash === '#admin'
+  );
+}
+
+function PortfolioMain() {
   return (
     <div className="min-h-screen bg-[#0d1116] text-white selection:bg-[#00df8f] selection:text-black font-sans relative transition-colors duration-300">
       <Navbar />
@@ -22,58 +34,46 @@ function PortfolioMain({ onOpenAdmin }) {
         <Services />
       </main>
       <Footer />
-
-      {/* Floating Admin Button (Bottom Right) */}
-      <button
-        onClick={onOpenAdmin}
-        className="fixed bottom-6 left-6 z-40 p-3 rounded-full bg-[#14181f]/80 hover:bg-[#00df8f] text-gray-400 hover:text-black border border-white/10 hover:border-[#00df8f] backdrop-blur-md transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer group"
-        title="Buka Admin CMS (Ctrl+Shift+A)"
-      >
-        <Settings size={18} className="transition-transform group-hover:rotate-90 duration-500" />
-      </button>
     </div>
   );
 }
 
 function MainApp() {
-  const [isAdminView, setIsAdminView] = useState(() => {
-    return window.location.hash === '#admin' || window.location.pathname === '/admin';
-  });
+  const [isAdminView, setIsAdminView] = useState(checkIsAdminPath);
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(() => {
     return !!sessionStorage.getItem('admin_token');
   });
   const { reloadPortfolioData } = useLanguage();
 
   useEffect(() => {
-    const handleHashChange = () => {
-      if (window.location.hash === '#admin' || window.location.pathname === '/admin') {
-        setIsAdminView(true);
-      }
+    const handleLocationChange = () => {
+      setIsAdminView(checkIsAdminPath());
     };
 
-    // Keyboard shortcut Ctrl + Shift + A
+    // Keyboard shortcuts: Ctrl + Shift + A or Ctrl + Shift + S
     const handleKeyDown = (e) => {
-      if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+      if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a' || e.key === 'S' || e.key === 's')) {
         e.preventDefault();
         setIsAdminView(prev => !prev);
       }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    window.addEventListener('popstate', handleLocationChange);
     window.addEventListener('keydown', handleKeyDown);
+
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+      window.removeEventListener('popstate', handleLocationChange);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
-  const handleOpenAdmin = () => {
-    setIsAdminView(true);
-    window.location.hash = 'admin';
-  };
-
   const handleBackToSite = () => {
     setIsAdminView(false);
+    if (window.location.pathname !== '/') {
+      window.history.pushState({}, '', '/');
+    }
     window.location.hash = '';
     reloadPortfolioData();
   };
@@ -82,6 +82,9 @@ function MainApp() {
     sessionStorage.removeItem('admin_token');
     setIsAdminAuthenticated(false);
     setIsAdminView(false);
+    if (window.location.pathname !== '/') {
+      window.history.pushState({}, '', '/');
+    }
     window.location.hash = '';
     reloadPortfolioData();
   };
@@ -103,7 +106,7 @@ function MainApp() {
     );
   }
 
-  return <PortfolioMain onOpenAdmin={handleOpenAdmin} />;
+  return <PortfolioMain />;
 }
 
 export default function App() {
@@ -115,4 +118,3 @@ export default function App() {
     </ThemeProvider>
   );
 }
-

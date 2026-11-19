@@ -129,3 +129,4 @@ Sanbercode | 2026
 ## LANGUAGES
 - **Indonesian:** Native
 - **English:** Basic Proficiency
+
